@@ -1,103 +1,56 @@
 # ReplWorks
 
-AI-first tools and specifications for software development.
+Project Memory System for AI Development.
 
-## Why ReplWorks?
+> Models forget. Projects must not.
 
-Modern AI coding agents are excellent at generating code.
+ReplWorks helps teams capture, preserve, and transfer project knowledge through structured documentation.
 
-The real challenge is helping them understand projects.
+As AI becomes part of software development, project success depends less on the model and more on the quality of the context provided to it.
 
-Without clear context, AI agents often:
+ReplWorks provides a documentation architecture that transforms project knowledge into reusable context.
 
-* invent new architectures
-* create inconsistent folder structures
-* ignore existing conventions
-* make incorrect assumptions
+## Core Ideas
 
-ReplWorks exists to reduce that ambiguity.
-
-Our goal is simple:
-
-> AI should not guess.
+- Project Memory
+- Structured Context
+- AI-First Documentation
+- Knowledge Preservation
+- Context Handoffs
 
 ## What We Build
 
 ### Documents
 
-Reusable AI-first project specifications.
+Reusable documentation systems for AI-assisted development.
 
-Examples:
+### Specifications
 
-* React + Vite
-* Next.js
-* Laravel
-* FastAPI
+Framework and extension specifications that reduce implementation ambiguity.
 
-These specifications define:
+### Workflows
 
-* project structure
-* implementation constraints
-* naming conventions
-* framework rules
+Document-driven development workflows for humans and AI agents.
 
-### Extensions
+## Philosophy
 
-Composable package specifications.
+AI models change.
 
-Examples:
+Conversations disappear.
 
-* React Router
-* i18next
-* Zustand
-* TanStack Query
+Projects continue.
 
-Extensions add framework-specific rules without introducing architectural drift.
+Project knowledge should survive beyond a single model, session, or developer.
 
-### Tools
+## Repositories
 
-Tools that help developers assemble project context for AI agents.
-
-The long-term goal is to generate high-quality project context automatically.
-
-## Core Principles
-
-### AI First
-
-Documentation is optimized for AI consumption.
-
-### Constraints Over Explanations
-
-AI already knows technologies.
-
-Projects need constraints, not tutorials.
-
-### Consistency Over Flexibility
-
-Consistency improves implementation quality.
-
-### Explicit Over Implicit
-
-Rules should be stated.
-
-Agents should not infer them.
-
-## Projects
-
-### Documents
-
-Reusable framework and extension specifications.
-
-Repository:
-
-`github.com/replworks/documents`
-
-## Vision
-
-Software projects should be understandable by both humans and AI.
-
-ReplWorks provides the context layer that makes that possible.
+- documents
+- (future) cli
+- (future) templates
+- (future) integrations
 
 ---
 
-Building better context for better software.
+Project Memory System
+
+https://www.repl.net
