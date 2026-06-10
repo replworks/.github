@@ -1,56 +1,53 @@
 # ReplWorks
 
-Project Memory System for AI Development.
+AI-Native Product Development Workflow
 
-> Models forget. Projects must not.
+> From idea to shipped product.
 
-ReplWorks helps teams capture, preserve, and transfer project knowledge through structured documentation.
+ReplWorks is a workflow methodology for building software with AI.
 
-As AI becomes part of software development, project success depends less on the model and more on the quality of the context provided to it.
+It standardizes the path from idea, specification, architecture, and implementation to shipped products through structured documents, validation loops, and AI-assisted execution.
 
-ReplWorks provides a documentation architecture that transforms project knowledge into reusable context.
+As AI becomes capable of writing code, the bottleneck shifts from coding to coordination.
 
-## Core Ideas
+ReplWorks focuses on making product development repeatable, reviewable, and executable by both humans and AI.
 
-- Project Memory
-- Structured Context
-- AI-First Documentation
-- Knowledge Preservation
-- Context Handoffs
+## Core Principles
 
-## What We Build
+* Product-First
+* Architecture-Driven
+* AI-Assisted
+* Workflow-Oriented
+* Context-Persistent
 
-### Documents
+## Workflow
 
-Reusable documentation systems for AI-assisted development.
-
-### Specifications
-
-Framework and extension specifications that reduce implementation ambiguity.
-
-### Workflows
-
-Document-driven development workflows for humans and AI agents.
-
-## Philosophy
+```text
+Idea
+↓
+Validation
+↓
+Product Spec
+↓
+Architecture
+↓
+Framework
+↓
+Implementation Review
+↓
+Tasks
+↓
+Execution
+↓
+Memory
+```
 
 AI models change.
 
-Conversations disappear.
+Tools change.
 
-Projects continue.
-
-Project knowledge should survive beyond a single model, session, or developer.
-
-## Repositories
-
-- documents
-- (future) cli
-- (future) templates
-- (future) integrations
+Workflows endure.
 
 ---
-
-Project Memory System
 
 https://www.repl.net
