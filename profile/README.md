@@ -1,53 +1,62 @@
-# ReplWorks
+# REPL Works
 
-AI-Native Product Development Workflow
+**AI-Native Product Development Framework**
 
-> From idea to shipped product.
+Keep your AI-built projects from going off the rails.
 
-ReplWorks is a workflow methodology for building software with AI.
+Planning with a conversational AI and coding with a coding AI is already the
+right approach. REPL Works is the document methodology that keeps a project
+from falling apart — through completion, and through every fix and improvement
+after.
 
-It standardizes the path from idea, specification, architecture, and implementation to shipped products through structured documents, validation loops, and AI-assisted execution.
+Six standard documents in Git hold your project's purpose, tech rules, and
+structure, so a new chat, a different AI, or a new teammate can read them and
+pick up exactly where work left off.
 
-As AI becomes capable of writing code, the bottleneck shifts from coding to coordination.
+## The Problem
 
-ReplWorks focuses on making product development repeatable, reviewable, and executable by both humans and AI.
+- Every new chat, you re-explain the project from scratch.
+- The AI writes code in the wrong version or folder because it doesn't know your rules.
 
-## Core Principles
+## How It Works
 
-* Product-First
-* Architecture-Driven
-* AI-Assisted
-* Workflow-Oriented
-* Context-Persistent
+Humans and a conversational AI (ChatGPT, Claude) write the documents together.
+A coding AI (Codex, Claude Code) verifies them before development, then updates
+code and docs together, one task per commit. You review and commit.
 
-## Workflow
+| Stage      | Document             | Purpose             |
+| ---------- | -------------------- | ------------------- |
+| For humans | `IDEAS.md`           | Idea validation     |
+|            | `PITCHING_SCRIPT.md` | Project positioning |
+| For AI     | `PRODUCT_SPEC.md`    | Product definition  |
+|            | `TECH_STACK.md`      | Technical rules     |
+|            | `ARCHITECTURE.md`    | System design       |
+|            | `TASKS.md`           | Execution plan      |
 
-```text
-Idea
-↓
-Validation
-↓
-Product Spec
-↓
-Architecture
-↓
-Framework
-↓
-Implementation Review
-↓
-Tasks
-↓
-Execution
-↓
-Memory
-```
+Git is the single source of truth: documents describe the current state,
+commits record how it got there.
 
-AI models change.
+## Tools
 
-Tools change.
+| Tool                                                    | What it does                                     | Install                                         |
+| ------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
+| [repl-cli](https://github.com/replworks/repl-cli)       | Keeps AI work on track against your documents    | `brew install --cask replworks/tap/repl-cli`    |
+| [ai-issue](https://github.com/replworks/ai-issue)       | Turn AI conversations into GitHub Issues         | `brew install --cask replworks/tap/ai-issue`    |
+| [coolrestore](https://github.com/replworks/coolrestore) | Restore Coolify backups safely after an incident | `brew install --cask replworks/tap/coolrestore` |
 
-Workflows endure.
+Linux users: see [apt.repl.net](https://apt.repl.net).
+
+## Built with REPL Works
+
+[WIFI Note](https://wifinote.net) · [Image Forge](https://if.repl.net) · [repl.net](https://www.repl.net)
+
+## Core Philosophy
+
+**Models change. Projects survive.**
+
+What overcomes the limits of AI models isn't a bigger context window. It's
+durable project memory, kept in Git and standard documents.
 
 ---
 
-https://www.repl.net
+[Docs](https://www.repl.net) · [한국어](https://www.repl.net) · works@repl.net · MIT License
