@@ -4,9 +4,10 @@ A collection of shared GitHub Actions reusable workflows for the Replworks organ
 
 ## Workflows
 
-| Workflow               | Purpose                                                                                   | Trigger (in the calling repo) |
-| ---------------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
-| `update-changelog.yml` | Updates `CHANGELOG.md` from the release notes and commits it to the release target branch | `release: published`          |
+| Workflow               | Purpose                                                                                   | Trigger                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `update-changelog.yml` | Updates `CHANGELOG.md` from the release notes and commits it to the release target branch | `release: published` (in the calling repo) |
+| `update-major-tag.yml` | Moves the major tag (e.g. `v1`) to the newly published release                            | `release: published` (in this repo)        |
 
 ## Usage
 
@@ -75,7 +76,14 @@ jobs:
 
 1. Push the change to `main` and verify it.
 2. Create a `v1.x.y` Release on GitHub.
-3. Move the major tag to the new release.
+
+That's it. When the Release is published, `update-major-tag.yml` moves the major tag (`v1`) to the new release automatically. Publishing `v2.0.0` creates the `v2` tag the same way.
+
+Notes:
+
+- The major tag is derived from the release tag by cutting everything after the first `.`, so release tags must look like `vMAJOR.MINOR.PATCH`.
+- Pre-releases (e.g. `v1.2.0-rc.1`) do not move the major tag.
+- If a tag ruleset blocks force pushes to tags, the workflow fails. Allow it for `v*` tags or move the tag manually:
 
 ```bash
 git fetch --tags
@@ -83,9 +91,9 @@ git tag -f v1 v1.x.y
 git push origin v1 --force
 ```
 
-For the very first release, create the `v1.0.0` Release, then run the commands above with `v1.0.0` in place of `v1.x.y`. If the `v1` tag does not exist, calls to `@v1` will fail.
+The `update-major-tag.yml` workflow only runs for releases published after it landed on `main`. For the very first release, if the `v1` tag does not exist yet, create it with the commands above. Without the `v1` tag, calls to `@v1` will fail.
 
-> Creating a Release in this repo does not update any CHANGELOG, because this repo has no workflow that calls `update-changelog`.
+> Creating a Release in this repo does not update any CHANGELOG, because this repo has no workflow that calls `update-changelog`. The only workflow that runs on release here is `update-major-tag.yml`.
 
 ## Setup checklist
 
@@ -98,8 +106,9 @@ For the very first release, create the `v1.0.0` Release, then run the commands a
 
 - **Reusable workflow instead of copies**: Copying the yml into every repo means chasing each copy whenever it changes. Keeping it in one place and calling it with `uses` applies a change everywhere at once. (The `workflow-templates` approach creates copies, so changes to the original do not reach repos that already copied it.)
 - **`runs-on` as an input**: Keeps the GitHub-hosted and self-hosted variants in a single file instead of two. The difference only shows up in the caller's `with` block.
-- **`@v1` instead of `@main`**: Acts as a buffer so that a broken `main` does not immediately spread to every repo. Verify on `main`, then move `v1`.
+- **`@v1` instead of `@main`**: Acts as a buffer so that a broken `main` does not immediately spread to every repo. Verify on `main`, then publish a Release.
 - **Release + moving major tag**: Releases make the version name visible on the repo's main page, and moving `v1` lets updates reach callers without editing their files.
+- **Major tag moved by a workflow**: Moving `v1` by hand is an easy step to forget, and a forgotten step means callers silently keep running the old version. `update-major-tag.yml` makes publishing a Release the only manual step.
 - **Actions referenced by tag, not SHA**: Upstream bug fixes are picked up automatically. The trade-off is that tags can be moved to a different commit, so a compromised third-party action would run with `contents: write` permission. We accept that risk.
 - **Release date taken from the tag's commit**: The date in the changelog should be the UTC date of the commit the tag points to, so it is extracted directly with `git log`.
 - **Values passed through `env`**: `${{ ... }}` expressions are not interpolated directly into shell scripts; they are passed via `env` instead.
